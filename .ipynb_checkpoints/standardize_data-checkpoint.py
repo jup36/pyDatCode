@@ -1,0 +1,25 @@
+# Standardizing the data
+def standardize_data(arr):
+    '''    
+    This function standardize an array with subtraction of the mean and division of the standard deviation 
+    input: array
+    return: standardized array
+    '''
+    rows, columns = arr.shape
+    standardizedArray = np.zeros(shape = (rows,columns))
+    tempArray = np.zeros(rows)
+    
+    for column in range(columns):
+        
+        mean = np.mean(X[:,column])
+        std = np.std(X[:,column])
+        tempArray = np.empty(0)
+        
+        for element in X[:,column]:
+            tempArray = np.append(tempArray, (element-mean)/std)
+        
+        standardizedArray[:,column] = tempArray
+        
+    return standardizedArray
+    
+    
